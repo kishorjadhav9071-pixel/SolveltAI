@@ -3157,3 +3157,62 @@ body.light .sidebar h3 {
 .video-studio-box button {
     pointer-events: auto;
 }
+/* =========================
+   MOBILE RESPONSIVE FIX
+   ========================= */
+
+@media (max-width: 768px) {
+
+    html, body {
+        width: 100%;
+        min-width: 0;
+        overflow-x: hidden;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    * {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+        max-width: 100%;
+    }
+
+    .container,
+    .main-container,
+    .app-container,
+    .chat-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+
+    .sidebar {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .chat-area,
+    .main-content {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    button {
+        min-height: 42px;
+    }
+
+    input,
+    textarea {
+        font-size: 16px;
+    }
+}
