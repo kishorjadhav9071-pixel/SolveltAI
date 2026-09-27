@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SolveItAI Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+<div class="login-box">
+
+    <h1>SolveItAI</h1>
+
+    <p class="subtitle" id="subtitle">
+        Welcome Back
+    </p>
+
+    <!-- LOGIN FORM -->
+
+    <div id="loginForm">
+
+        <input
+            type="email"
+            id="username"
+            placeholder="Email"
+        >
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Password"
+        >
+
+        <label class="remember">
+            <input type="checkbox" id="showPassword">
+            Show Password
+        </label>
+
+        <button id="loginBtn">
+            Login
+        </button>
+
+        <button id="signupBtn">
+            Create Account
+        </button>
+
+        <button id="guestBtn">
+            Continue as Guest
+        </button>
+
+        <p class="forgot">
+            Forgot Password?
+        </p>
+
+    </div>
+
+
+    <!-- REGISTER FORM -->
+
+    <div id="registerForm" style="display:none;">
+
+        <input
+            type="text"
+            id="registerName"
+            placeholder="Full Name"
+        >
+
+        <input
+            type="email"
+            id="registerEmail"
+            placeholder="Email"
+        >
+
+        <input
+            type="password"
+            id="registerPassword"
+            placeholder="Password (minimum 6 characters)"
+        >
+
+        <button id="registerBtn">
+            Create Account
+        </button>
+
+        <button id="backLoginBtn">
+            Back to Login
+        </button>
+
+    </div>
+
+
+    <p id="message"></p>
+
+    <p class="creator">
+        Created by Naitu Gamer
+    </p>
+
+</div>
+
+<script src="login.js"></script>
+
+</body>
+</html>

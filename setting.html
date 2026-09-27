@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>SolveItAI Settings</title>
+
+    <link
+        rel="stylesheet"
+        href="setting.css">
+</head>
+
+<body>
+
+<div class="settings-container">
+
+    <div class="settings-header">
+        <button
+            class="back-btn"
+            onclick="window.location.href='index.html'">
+            ←
+        </button>
+
+        <div>
+            <h1>⚙️ Settings</h1>
+            <p>SolveItAI preferences</p>
+        </div>
+    </div>
+
+
+    <div class="settings-card">
+
+        <h2>🌐 Language</h2>
+
+        <label>AI Language</label>
+
+        <select id="language">
+            <option value="en">English</option>
+            <option value="mr">मराठी</option>
+            <option value="hi">हिन्दी</option>
+        </select>
+
+    </div>
+
+
+    <div class="settings-card">
+
+        <h2>🎨 Appearance</h2>
+
+        <label>Theme</label>
+
+        <select id="theme">
+            <option value="dark">🌙 Dark</option>
+            <option value="light">☀️ Light</option>
+        </select>
+
+    </div>
+
+
+    <div class="settings-card">
+
+        <h2>🤖 AI Mode</h2>
+
+        <label>Response Mode</label>
+
+        <select id="mode">
+            <option value="normal">⚡ Normal</option>
+            <option value="step">📚 Step-by-Step</option>
+            <option value="detailed">🧠 Detailed</option>
+        </select>
+
+    </div>
+
+
+    <div class="settings-card">
+
+        <h2>📝 Response Style</h2>
+
+        <label>Answer Style</label>
+
+        <select id="responseStyle">
+            <option value="short">Short & Clear</option>
+            <option value="balanced">Balanced</option>
+            <option value="detailed">Detailed</option>
+        </select>
+
+    </div>
+
+
+    <div class="settings-card">
+
+        <h2>🔤 Font Size</h2>
+
+        <label>Chat Font Size</label>
+
+        <select id="fontSize">
+            <option value="Small">Small</option>
+            <option value="Medium">Medium</option>
+            <option value="Large">Large</option>
+        </select>
+
+    </div>
+
+
+    <div class="settings-card">
+
+        <h2>🎤 Voice</h2>
+
+        <div class="toggle-row">
+
+            <span>🔊 Voice Output</span>
+
+            <label class="switch">
+                <input
+                    type="checkbox"
+                    id="voiceOutput">
+                <span class="slider"></span>
+            </label>
+
+        </div>
+
+
+        <div class="toggle-row">
+
+            <span>🎤 Voice Input</span>
+
+            <label class="switch">
+                <input
+                    type="checkbox"
+                    id="voiceInput">
+                <span class="slider"></span>
+            </label>
+
+        </div>
+
+
+        <div class="toggle-row">
+
+            <span>⚡ Fast Mode</span>
+
+            <label class="switch">
+                <input
+                    type="checkbox"
+                    id="fastMode">
+                <span class="slider"></span>
+            </label>
+
+        </div>
+
+    </div>
+
+
+    <button
+        id="saveBtn"
+        class="save-btn">
+
+        💾 Save Settings
+
+    </button>
+
+
+    <button
+        id="clearBtn"
+        class="clear-btn">
+
+        🗑️ Clear Chat History
+
+    </button>
+
+
+    <button
+        id="logoutBtn"
+        class="logout-btn">
+
+        🚪 Logout
+
+    </button>
+
+
+    <p class="creator">
+        SolveItAI
+        <br>
+        <span>Created by Naitu Gamer</span>
+    </p>
+
+</div>
+
+
+<script src="setting.js"></script>
+
+</body>
+
+</html>

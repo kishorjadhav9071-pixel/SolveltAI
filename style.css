@@ -1,0 +1,3159 @@
+/* =========================================================
+   SOLVEITAI — PREMIUM MODERN UI
+   Chat + Live Robo Video Call
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at 85% 5%, rgba(0, 174, 255, .12), transparent 28%),
+        radial-gradient(circle at 20% 90%, rgba(75, 70, 255, .08), transparent 30%),
+        #050912;
+    color: #fff;
+    overflow: hidden;
+}
+
+button,
+textarea {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   MAIN LAYOUT
+========================================================= */
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar {
+    width: 260px;
+    flex-shrink: 0;
+
+    padding: 22px 18px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(13, 25, 45, .98),
+            rgba(6, 12, 24, .98)
+        );
+
+    border-right: 1px solid rgba(80, 180, 255, .14);
+
+    box-shadow:
+        8px 0 35px rgba(0, 0, 0, .25);
+
+    overflow-y: auto;
+}
+
+.logo-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 8px;
+}
+
+.logo-area img {
+    width: 175px;
+    max-width: 95%;
+    display: block;
+
+    filter:
+        drop-shadow(0 0 14px rgba(0, 180, 255, .25));
+}
+
+.creator {
+    margin: 6px 0 22px;
+
+    text-align: center;
+
+    font-size: 12px;
+
+    color: #8eb9dc;
+
+    letter-spacing: .4px;
+}
+
+
+/* =========================================================
+   SIDEBAR BUTTONS
+========================================================= */
+
+.new-chat,
+.setting-btn {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    margin-bottom: 10px;
+
+    border-radius: 12px;
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: .25s ease;
+}
+
+.new-chat {
+    border: 1px solid rgba(0, 190, 255, .35);
+
+    background:
+        linear-gradient(
+            135deg,
+            #1478ff,
+            #00b8ed
+        );
+
+    box-shadow:
+        0 8px 25px rgba(0, 150, 255, .18);
+}
+
+.new-chat:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 32px rgba(0, 180, 255, .35);
+}
+
+.setting-btn {
+    background:
+        rgba(35, 70, 110, .28);
+
+    border:
+        1px solid rgba(100, 180, 255, .16);
+}
+
+.setting-btn:hover {
+    background:
+        rgba(35, 105, 175, .45);
+
+    border-color:
+        rgba(100, 190, 255, .30);
+}
+
+
+/* =========================================================
+   HISTORY
+========================================================= */
+
+.sidebar h3 {
+    margin: 25px 0 12px;
+
+    color: #8ddcff;
+
+    font-size: 14px;
+
+    letter-spacing: .7px;
+}
+
+#history {
+    padding: 0;
+    margin: 0;
+
+    list-style: none;
+}
+
+#history li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px;
+
+    margin-bottom: 7px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(30, 55, 90, .34);
+
+    border:
+        1px solid rgba(100, 180, 255, .08);
+
+    transition: .2s ease;
+}
+
+#history li:hover {
+    background:
+        rgba(45, 95, 150, .55);
+
+    border-color:
+        rgba(100, 190, 255, .18);
+
+    transform: translateX(2px);
+}
+
+.history-title {
+    flex: 1;
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+
+    cursor: pointer;
+
+    font-size: 13px;
+}
+
+.delete-chat {
+    width: 29px;
+    height: 29px;
+
+    border-radius: 8px;
+
+    border:
+        1px solid rgba(255, 70, 90, .22);
+
+    background:
+        rgba(255, 60, 80, .08);
+
+    color: #ff7180;
+
+    transition: .2s;
+}
+
+.delete-chat:hover {
+    background: #ed4055;
+    color: white;
+}
+
+
+/* =========================================================
+   CHAT AREA
+========================================================= */
+
+.chat-area {
+    flex: 1;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 18px;
+
+    background:
+        radial-gradient(
+            circle at 80% 10%,
+            rgba(0, 170, 255, .07),
+            transparent 30%
+        ),
+        #080d18;
+}
+
+
+/* =========================================================
+   CHAT BOX
+========================================================= */
+
+#chatBox {
+    flex: 1;
+    min-height: 0;
+
+    overflow-y: auto;
+
+    padding: 22px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(18, 31, 52, .96),
+            rgba(7, 14, 26, .97)
+        );
+
+    border:
+        1px solid rgba(100, 180, 255, .10);
+
+    box-shadow:
+        inset 0 0 40px rgba(0, 0, 0, .18),
+        0 15px 40px rgba(0, 0, 0, .12);
+}
+
+#chatBox::-webkit-scrollbar {
+    width: 6px;
+}
+
+#chatBox::-webkit-scrollbar-thumb {
+    background:
+        linear-gradient(#168cff, #24567d);
+
+    border-radius: 20px;
+}
+
+
+/* =========================================================
+   MESSAGES
+========================================================= */
+
+.user-message,
+.ai-message {
+    display: flex;
+
+    gap: 10px;
+
+    margin: 17px 0;
+
+    align-items: flex-start;
+}
+
+.user-message {
+    justify-content: flex-end;
+}
+
+.ai-message {
+    justify-content: flex-start;
+}
+
+
+/* =========================================================
+   AVATAR
+========================================================= */
+
+.avatar {
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #182f50,
+            #091426
+        );
+
+    border:
+        1px solid rgba(100, 190, 255, .20);
+
+    box-shadow:
+        0 0 18px rgba(0, 150, 255, .15);
+
+    font-size: 19px;
+}
+
+
+/* =========================================================
+   MESSAGE BUBBLES
+========================================================= */
+
+.user-message .bubble {
+    max-width: 70%;
+
+    padding: 13px 17px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1677ff,
+            #315de0
+        );
+
+    border-radius:
+        18px 18px 5px 18px;
+
+    box-shadow:
+        0 8px 25px rgba(30, 100, 255, .18);
+
+    overflow-wrap: break-word;
+
+    line-height: 1.55;
+}
+
+.ai-message .bubble {
+    max-width: 70%;
+
+    padding: 13px 17px;
+
+    color: #edf7ff;
+
+    background:
+        linear-gradient(
+            145deg,
+            #17263d,
+            #101b2d
+        );
+
+    border-radius:
+        18px 18px 18px 5px;
+
+    border:
+        1px solid rgba(100, 180, 255, .11);
+
+    line-height: 1.65;
+
+    white-space: pre-wrap;
+
+    overflow-wrap: break-word;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, .10);
+}
+
+
+/* =========================================================
+   SPEAK BUTTON
+========================================================= */
+
+.speak-answer {
+    padding: 7px 12px;
+
+    margin-top: 8px;
+
+    border-radius: 9px;
+
+    background:
+        rgba(0, 190, 255, .10);
+
+    border:
+        1px solid rgba(0, 190, 255, .22);
+
+    color: #8edfff;
+
+    transition: .2s;
+}
+
+.speak-answer:hover {
+    background: #008ed0;
+
+    color: white;
+
+    box-shadow:
+        0 0 18px rgba(0, 190, 255, .25);
+}
+
+
+/* =========================================================
+   THINKING
+========================================================= */
+
+.typing {
+    display: inline-block;
+
+    padding: 12px 16px;
+
+    border-radius: 18px;
+
+    background:
+        #17243a;
+
+    border:
+        1px solid rgba(100, 180, 255, .12);
+
+    color: #91cfffc9;
+
+    animation:
+        thinking 1.2s infinite;
+}
+
+@keyframes thinking {
+
+    0%,
+    100% {
+        opacity: .45;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   INPUT AREA
+========================================================= */
+
+.input-area {
+    display: flex;
+
+    align-items: flex-end;
+
+    gap: 9px;
+
+    margin-top: 13px;
+}
+
+textarea {
+    flex: 1;
+
+    min-height: 58px;
+    max-height: 190px;
+
+    resize: none;
+
+    overflow-y: auto;
+
+    padding: 14px 15px;
+
+    outline: none;
+
+    border-radius: 14px;
+
+    border:
+        1px solid rgba(80, 180, 255, .18);
+
+    background:
+        linear-gradient(
+            145deg,
+            #0d1829,
+            #09111f
+        );
+
+    color: white;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+
+    transition: .25s;
+}
+
+textarea:focus {
+    border-color: #168cff;
+
+    box-shadow:
+        0 0 22px rgba(0, 150, 255, .13);
+}
+
+textarea::placeholder {
+    color: #71839c;
+}
+
+
+/* =========================================================
+   INPUT BUTTONS
+========================================================= */
+
+.voice-btn,
+.video-ai-btn {
+    width: 50px;
+    height: 50px;
+
+    flex-shrink: 0;
+
+    padding: 0;
+
+    border-radius: 13px;
+
+    color: white;
+
+    font-size: 20px;
+
+    transition: .25s;
+}
+
+.voice-btn {
+    background:
+        linear-gradient(
+            145deg,
+            #172f50,
+            #0c1b30
+        );
+
+    border:
+        1px solid rgba(0, 200, 255, .25);
+}
+
+.voice-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 24px rgba(0, 200, 255, .30);
+}
+
+.video-ai-btn {
+    background:
+        linear-gradient(
+            135deg,
+            #5b29d2,
+            #087cff
+        );
+
+    border:
+        1px solid rgba(160, 130, 255, .35);
+
+    box-shadow:
+        0 0 18px rgba(80, 90, 255, .20);
+}
+
+.video-ai-btn:hover {
+    transform: translateY(-2px) scale(1.04);
+
+    box-shadow:
+        0 0 30px rgba(80, 130, 255, .55);
+}
+
+.send-btn {
+    height: 50px;
+
+    padding: 0 21px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1677ff,
+            #00afea
+        );
+
+    color: white;
+
+    font-weight: bold;
+
+    transition: .25s;
+
+    box-shadow:
+        0 7px 20px rgba(0, 150, 255, .15);
+}
+
+.send-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 9px 28px rgba(0, 170, 255, .35);
+}
+
+
+/* =========================================================
+   LIVE VIDEO SCREEN
+========================================================= */
+
+.ai-video-screen {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
+
+    display: none;
+
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            #073d78 0%,
+            #02172f 35%,
+            #010711 72%,
+            #000 100%
+        );
+
+    color: white;
+
+    overflow: hidden;
+}
+
+.ai-video-screen.active {
+    display: block;
+    animation: videoOpen .35s ease;
+}
+
+@keyframes videoOpen {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   VIDEO TOP BAR
+========================================================= */
+
+.video-topbar {
+    height: 82px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 30px;
+
+    border-bottom:
+        1px solid rgba(0, 150, 255, .30);
+
+    background:
+        rgba(0, 5, 15, .82);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 0 30px rgba(0, 120, 255, .13);
+}
+
+.video-brand {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    flex: 1;
+}
+
+.brand-logo {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    border:
+        2px solid #159cff;
+
+    color: white;
+
+    font-size: 25px;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 0 20px rgba(0, 150, 255, .55);
+}
+
+.brand-name {
+    font-size: 21px;
+
+    font-weight: bold;
+
+    letter-spacing: .5px;
+}
+
+.brand-name span {
+    color: #159cff;
+}
+
+.brand-name b {
+    margin-left: 7px;
+
+    padding: 4px 7px;
+
+    border:
+        1px solid #159cff;
+
+    border-radius: 5px;
+
+    color: #159cff;
+
+    font-size: 10px;
+}
+
+.video-brand small {
+    color: #91abc5;
+
+    font-size: 11px;
+}
+
+.live-status {
+    padding: 9px 16px;
+
+    border-radius: 25px;
+
+    background:
+        rgba(0, 40, 60, .65);
+
+    border:
+        1px solid rgba(0, 160, 255, .38);
+
+    font-weight: bold;
+
+    font-size: 13px;
+}
+
+.live-status span {
+    display: inline-block;
+
+    width: 9px;
+    height: 9px;
+
+    margin-right: 7px;
+
+    border-radius: 50%;
+
+    background: #00ff9d;
+
+    box-shadow:
+        0 0 12px #00ff9d;
+}
+
+.close-video {
+    margin-left: 18px;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid #2579b8;
+
+    background:
+        rgba(7, 24, 43, .85);
+
+    color: white;
+
+    font-size: 19px;
+
+    transition: .25s;
+}
+
+.close-video:hover {
+    background: #e5394f;
+
+    transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   USER VIDEO
+========================================================= */
+
+.user-video-card {
+    position: absolute;
+
+    top: 105px;
+    left: 30px;
+
+    width: 280px;
+    height: 205px;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    border:
+        2px solid #159cff;
+
+    background: #020912;
+
+    box-shadow:
+        0 0 30px rgba(0, 150, 255, .40);
+}
+
+#userVideo {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    background: #030a12;
+}
+
+.user-video-label {
+    position: absolute;
+
+    left: 10px;
+    bottom: 10px;
+
+    padding: 6px 10px;
+
+    border-radius: 8px;
+
+    background:
+        rgba(0, 0, 0, .65);
+
+    font-size: 12px;
+}
+
+.user-video-label span {
+    color: #00ff9d;
+}
+
+
+/* =========================================================
+   ROBOT AREA
+========================================================= */
+
+.ai-robot-area {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -45%);
+
+    width: 650px;
+    height: 590px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.robot-glow {
+    position: absolute;
+
+    width: 440px;
+    height: 440px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0, 150, 255, .35),
+            transparent 68%
+        );
+
+    filter: blur(25px);
+
+    animation:
+        roboGlow 3s ease-in-out infinite;
+}
+
+@keyframes roboGlow {
+
+    0%,
+    100% {
+        opacity: .65;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+}
+
+
+/* =========================================================
+   ROBOT
+========================================================= */
+
+.ai-robot {
+    position: relative;
+
+    width: 370px;
+    height: 540px;
+
+    z-index: 2;
+
+    animation:
+        robotFloat 4s ease-in-out infinite;
+}
+
+@keyframes robotFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+
+/* =========================================================
+   ROBOT HEAD
+========================================================= */
+
+.robot-head {
+    position: absolute;
+
+    left: 70px;
+    top: 20px;
+
+    width: 230px;
+    height: 175px;
+
+    padding: 12px;
+
+    border-radius: 55px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #c9d5e1 50%,
+            #758699
+        );
+
+    border:
+        2px solid #e2f2ff;
+
+    box-shadow:
+        inset 0 0 20px rgba(255,255,255,.6),
+        0 0 35px rgba(0,160,255,.65);
+}
+
+.robot-face {
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 45px;
+
+    border-radius: 43px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #061827,
+            #02070d
+        );
+
+    box-shadow:
+        inset 0 0 25px rgba(0,200,255,.16);
+}
+
+.robot-eye {
+    width: 38px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 40% 35%,
+            #b8f5ff,
+            #24b9ff 45%,
+            #008cff
+        );
+
+    box-shadow:
+        0 0 12px #00cfff,
+        0 0 28px #008cff;
+
+    animation:
+        robotBlink 5s infinite,
+        eyePulse 2s ease-in-out infinite;
+}
+
+@keyframes eyePulse {
+
+    0%,
+    100% {
+        filter: brightness(.9);
+    }
+
+    50% {
+        filter: brightness(1.3);
+    }
+}
+
+.robot-mouth {
+    position: absolute;
+
+    bottom: 27px;
+
+    width: 62px;
+    height: 18px;
+
+    border-bottom:
+        5px solid #25baff;
+
+    border-radius: 50%;
+
+    filter:
+        drop-shadow(0 0 8px #00aaff);
+}
+
+
+/* =========================================================
+   ROBOT NECK
+========================================================= */
+
+.robot-neck {
+    position: absolute;
+
+    left: 150px;
+    top: 190px;
+
+    width: 70px;
+    height: 45px;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            #273847,
+            #060b12
+        );
+
+    border-left:
+        2px solid #159cff;
+
+    border-right:
+        2px solid #159cff;
+}
+
+
+/* =========================================================
+   ROBOT BODY
+========================================================= */
+
+.robot-body {
+    position: absolute;
+
+    left: 55px;
+    top: 220px;
+
+    width: 260px;
+    height: 190px;
+
+    border-radius:
+        45px 45px 30px 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f5f9fc,
+            #aab8c6 52%,
+            #647586
+        );
+
+    border:
+        2px solid #dcecff;
+
+    box-shadow:
+        inset 0 0 25px rgba(255,255,255,.55),
+        0 0 30px rgba(0,150,255,.35);
+}
+
+
+/* =========================================================
+   CHEST
+========================================================= */
+
+.robot-chest {
+    position: absolute;
+
+    left: 82px;
+    top: 40px;
+
+    width: 95px;
+    height: 100px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 22px;
+
+    border:
+        3px solid #139eff;
+
+    background:
+        radial-gradient(
+            circle,
+            #123453,
+            #071321
+        );
+
+    box-shadow:
+        0 0 25px rgba(0,150,255,.65),
+        inset 0 0 18px rgba(0,200,255,.18);
+}
+
+.chest-s {
+    color: #28b8ff;
+
+    font-size: 55px;
+
+    font-weight: bold;
+
+    text-shadow:
+        0 0 15px #00aaff;
+}
+
+
+/* =========================================================
+   ROBOT ARMS
+========================================================= */
+
+.robot-arm {
+    position: absolute;
+
+    top: 25px;
+
+    width: 80px;
+    height: 150px;
+
+    transform-origin: top center;
+}
+
+.robot-left-arm {
+    left: -70px;
+
+    transform:
+        rotate(20deg);
+}
+
+.robot-right-arm {
+    right: -70px;
+
+    transform:
+        rotate(-20deg);
+}
+
+.arm-part {
+    width: 65px;
+    height: 75px;
+
+    margin-bottom: 8px;
+
+    border-radius: 35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f3f7fc,
+            #8b99aa
+        );
+
+    border:
+        1px solid #dcecff;
+
+    box-shadow:
+        0 0 12px rgba(0,150,255,.35);
+}
+
+.robot-hand {
+    display: flex;
+
+    gap: 5px;
+}
+
+.robot-hand span {
+    width: 12px;
+    height: 35px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            #edf4fa,
+            #aab9c7
+        );
+}
+
+
+/* =========================================================
+   WAIST
+========================================================= */
+
+.robot-waist {
+    position: absolute;
+
+    left: 105px;
+    top: 410px;
+
+    width: 160px;
+    height: 45px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #3e4d5b,
+            #728496,
+            #3e4d5b
+        );
+
+    border:
+        1px solid #9eb4c8;
+}
+
+
+/* =========================================================
+   LEGS
+========================================================= */
+
+.robot-legs {
+    position: absolute;
+
+    top: 450px;
+    left: 95px;
+
+    display: flex;
+
+    gap: 25px;
+}
+
+.robot-leg {
+    width: 70px;
+    height: 80px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e8eef4,
+            #758497
+        );
+
+    border:
+        2px solid #dcecff;
+
+    box-shadow:
+        0 0 15px rgba(0,150,255,.30);
+}
+
+
+/* =========================================================
+   SPEECH BUBBLE
+========================================================= */
+
+.ai-speech-bubble {
+    position: absolute;
+
+    right: -95px;
+    top: 245px;
+
+    width: 245px;
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+    border:
+        1px solid rgba(21,156,255,.65);
+
+    background:
+        rgba(2,15,30,.82);
+
+    backdrop-filter:
+        blur(12px);
+
+    font-size: 17px;
+
+    line-height: 1.5;
+
+    box-shadow:
+        0 0 30px rgba(0,150,255,.22);
+}
+
+.ai-speech-bubble::before {
+    content: "";
+
+    position: absolute;
+
+    left: -9px;
+    top: 45px;
+
+    width: 16px;
+    height: 16px;
+
+    transform: rotate(45deg);
+
+    background:
+        #071a2c;
+
+    border-left:
+        1px solid #159cff;
+
+    border-bottom:
+        1px solid #159cff;
+}
+
+.ai-speech-bubble span {
+    color: #19aaff;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   VIDEO CONTROLS
+========================================================= */
+
+.video-controls {
+    position: absolute;
+
+    bottom: 88px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 12px 18px;
+
+    border-radius: 22px;
+
+    background:
+        rgba(2,10,20,.82);
+
+    backdrop-filter:
+        blur(15px);
+
+    border:
+        1px solid rgba(0,150,255,.32);
+
+    box-shadow:
+        0 0 35px rgba(0,100,255,.20);
+}
+
+.video-controls button {
+    width: 75px;
+    height: 62px;
+
+    border:
+        1px solid #21415d;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0b1d30,
+            #07111d
+        );
+
+    color: white;
+
+    font-size: 22px;
+
+    transition: .22s;
+}
+
+.video-controls button:hover {
+    transform:
+        translateY(-3px);
+
+    border-color:
+        #159cff;
+
+    box-shadow:
+        0 0 18px rgba(0,150,255,.40);
+}
+
+.video-controls small {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 10px;
+
+    color: #9eb9d2;
+}
+
+.video-controls .end-call {
+    width: 78px;
+    height: 78px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ff4b4b,
+            #c82035
+        );
+
+    border: none;
+
+    font-size: 28px;
+
+    box-shadow:
+        0 0 25px rgba(255,50,50,.40);
+}
+
+.video-controls .end-call:hover {
+    background:
+        #ff3347;
+
+    box-shadow:
+        0 0 35px rgba(255,40,60,.65);
+}
+
+
+/* =========================================================
+   VIDEO BOTTOM INFO
+========================================================= */
+
+.video-bottom {
+    position: absolute;
+
+    left: 30px;
+    right: 30px;
+
+    bottom: 16px;
+
+    height: 58px;
+
+    display: flex;
+
+    border-radius: 16px;
+
+    border:
+        1px solid rgba(0,150,255,.22);
+
+    background:
+        rgba(3,15,28,.78);
+
+    backdrop-filter:
+        blur(10px);
+}
+
+.video-bottom > div {
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-right:
+        1px solid rgba(255,255,255,.07);
+}
+
+.video-bottom > div:last-child {
+    border-right: none;
+}
+
+.video-bottom strong {
+    color: #15aaff;
+
+    font-size: 14px;
+}
+
+.video-bottom span {
+    color: #8fa8c0;
+
+    font-size: 11px;
+
+    margin-top: 3px;
+}
+
+
+/* =========================================================
+   HIDDEN OLD STATUS
+========================================================= */
+
+.video-status,
+.video-captions {
+    display: none;
+}
+
+
+/* =========================================================
+   LIGHT MODE
+========================================================= */
+
+body.light {
+    background: #edf5ff !important;
+
+    color: #111827 !important;
+}
+
+body.light .sidebar {
+    background:
+        linear-gradient(
+            180deg,
+            #f8fbff,
+            #edf4fc
+        ) !important;
+
+    border-right-color:
+        #c9d8e8;
+}
+
+body.light .chat-area {
+    background: #edf5ff !important;
+}
+
+body.light #chatBox {
+    background: white !important;
+
+    border-color:
+        #d3e0ef;
+}
+
+body.light textarea {
+    background: white !important;
+
+    color: #111827 !important;
+
+    border-color:
+        #c8d8e8;
+}
+
+body.light textarea::placeholder {
+    color: #718096;
+}
+
+body.light .ai-message .bubble {
+    background: #eef5fc;
+
+    color: #111827;
+}
+
+body.light #history li {
+    background: white;
+
+    color: #111827;
+
+    border-color:
+        #d5e2ef;
+}
+
+body.light .creator,
+body.light .sidebar h3 {
+    color: #1769aa;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        width: 220px;
+    }
+
+    .user-video-card {
+        width: 220px;
+        height: 160px;
+    }
+
+    .ai-robot-area {
+        transform:
+            translate(-50%, -45%)
+            scale(.82);
+    }
+
+    .ai-speech-bubble {
+        right: -40px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .sidebar {
+        width: 190px;
+
+        padding: 14px 10px;
+    }
+
+    .chat-area {
+        padding: 9px;
+    }
+
+    #chatBox {
+        padding: 12px;
+    }
+
+    .user-message .bubble,
+    .ai-message .bubble {
+        max-width: 84%;
+    }
+
+    .logo-area img {
+        width: 145px;
+    }
+
+    .creator {
+        font-size: 11px;
+    }
+
+    .user-video-card {
+        width: 145px;
+        height: 110px;
+
+        top: 100px;
+        left: 12px;
+    }
+
+    .ai-robot-area {
+        transform:
+            translate(-50%, -43%)
+            scale(.62);
+    }
+
+    .ai-speech-bubble {
+        display: none;
+    }
+
+    .video-topbar {
+        height: 70px;
+
+        padding: 0 12px;
+    }
+
+    .brand-logo {
+        width: 38px;
+        height: 38px;
+
+        font-size: 21px;
+    }
+
+    .brand-name {
+        font-size: 15px;
+    }
+
+    .video-brand small {
+        display: none;
+    }
+
+    .live-status {
+        padding: 7px 10px;
+
+        font-size: 11px;
+    }
+
+    .close-video {
+        width: 38px;
+        height: 38px;
+
+        margin-left: 8px;
+    }
+
+    .video-controls {
+        bottom: 55px;
+
+        gap: 5px;
+
+        padding: 7px 8px;
+
+        border-radius: 18px;
+    }
+
+    .video-controls button {
+        width: 53px;
+        height: 53px;
+
+        font-size: 17px;
+    }
+
+    .video-controls small {
+        font-size: 8px;
+    }
+
+    .video-controls .end-call {
+        width: 62px;
+        height: 62px;
+
+        font-size: 22px;
+    }
+
+    .video-bottom {
+        display: none;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 500px) {
+
+    .sidebar {
+        width: 165px;
+    }
+
+    .new-chat,
+    .setting-btn {
+        font-size: 12px;
+
+        padding: 10px 6px;
+    }
+
+    .sidebar h3 {
+        font-size: 13px;
+    }
+
+    .history-title {
+        font-size: 11px;
+    }
+
+    .input-area {
+        gap: 5px;
+    }
+
+    .voice-btn,
+    .video-ai-btn {
+        width: 42px;
+        height: 42px;
+
+        font-size: 17px;
+    }
+
+    .send-btn {
+        height: 42px;
+
+        padding: 0 13px;
+
+        font-size: 13px;
+    }
+
+    textarea {
+        min-height: 48px;
+
+        padding: 10px;
+
+        font-size: 13px;
+    }
+
+    .ai-robot-area {
+        transform:
+            translate(-50%, -42%)
+            scale(.53);
+    }
+
+    .user-video-card {
+        width: 125px;
+        height: 92px;
+
+        top: 85px;
+    }
+
+    .video-controls {
+        bottom: 35px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .sidebar {
+        width: 145px;
+
+        padding: 9px 7px;
+    }
+
+    .logo-area img {
+        width: 120px;
+    }
+
+    .chat-area {
+        padding: 6px;
+    }
+
+    .ai-robot-area {
+        transform:
+            translate(-50%, -40%)
+            scale(.46);
+    }
+
+    .voice-btn,
+    .video-ai-btn {
+        width: 38px;
+        height: 38px;
+    }
+
+    .send-btn {
+        padding: 0 9px;
+    }
+
+    .video-controls button {
+        width: 47px;
+        height: 47px;
+    }
+
+    .video-controls .end-call {
+        width: 55px;
+        height: 55px;
+    }
+}
+/* =========================================================
+   CHATGPT STYLE SIDEBAR TOGGLE
+========================================================= */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 10000;
+
+    transform: translateX(-100%);
+    transition: transform .3s ease;
+
+    width: 260px;
+}
+
+.sidebar.show {
+    transform: translateX(0);
+}
+
+
+/* 3 LINE BUTTON */
+
+.sidebar-toggle {
+    position: fixed;
+
+    top: 16px;
+    left: 16px;
+
+    width: 46px;
+    height: 46px;
+
+    z-index: 10001;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(100,180,255,.20);
+
+    background:
+        rgba(12,25,43,.90);
+
+    color: white;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    backdrop-filter: blur(12px);
+
+    transition: .25s;
+}
+
+.sidebar-toggle:hover {
+    background: #1478ff;
+
+    box-shadow:
+        0 0 25px rgba(0,150,255,.35);
+
+    transform: scale(1.05);
+}
+
+
+/* SIDEBAR OPEN झाल्यावर */
+
+.sidebar.show + .chat-area {
+    margin-left: 260px;
+    transition: margin-left .3s ease;
+}
+
+
+/* CHAT AREA */
+
+.chat-area {
+    margin-left: 0;
+    transition: margin-left .3s ease;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .sidebar {
+        width: 250px;
+    }
+
+    .sidebar.show + .chat-area {
+        margin-left: 0;
+    }
+}
+
+/* =========================================================
+   CHATGPT STYLE PLUS BUTTON
+   ========================================================= */
+
+.plus-btn {
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: inherit;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    transition: 0.2s;
+}
+
+.plus-btn:hover {
+    background: rgba(128, 128, 128, 0.18);
+}
+
+
+/* =========================================================
+   IMAGE PREVIEW
+   ========================================================= */
+
+.image-preview {
+    position: relative;
+
+    width: fit-content;
+
+    margin: 0 0 8px 10px;
+
+    padding: 6px;
+
+    border-radius: 12px;
+
+    background: rgba(128, 128, 128, 0.12);
+}
+
+.image-preview img {
+    width: 90px;
+    height: 90px;
+
+    object-fit: cover;
+
+    border-radius: 9px;
+
+    display: block;
+}
+
+.remove-image {
+    position: absolute;
+
+    top: -7px;
+    right: -7px;
+
+    width: 24px;
+    height: 24px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #555;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   IMAGE INSIDE CHAT
+   ========================================================= */
+
+.chat-user-image {
+    display: block;
+
+    max-width: 280px;
+    max-height: 280px;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 12px;
+
+    margin-bottom: 4px;
+}
+/* =========================================
+   GAME MODE BUTTON
+========================================= */
+
+.game-mode-btn {
+    width: calc(100% - 24px);
+    margin: 8px 12px;
+    padding: 12px 14px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.06);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.game-mode-btn:hover {
+    background: rgba(255,255,255,0.12);
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   GAME MODE SCREEN
+========================================= */
+
+.game-mode-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(255,255,255,0.08),
+            rgba(0,0,0,0.94) 55%
+        );
+
+    backdrop-filter: blur(14px);
+
+    opacity: 0;
+    transform: scale(1.03);
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.game-mode-screen.active {
+    display: flex;
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+/* =========================================
+   GAME BOX
+========================================= */
+
+.game-mode-box {
+    width: min(900px, 92%);
+    max-height: 90vh;
+    overflow-y: auto;
+
+    padding: 28px;
+
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 26px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30,30,30,0.97),
+            rgba(8,8,8,0.97)
+        );
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.7);
+
+    position: relative;
+
+    animation: gameBoxIn 0.45s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes gameBoxIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* =========================================
+   CLOSE
+========================================= */
+
+.game-close {
+    position: absolute;
+    right: 18px;
+    top: 18px;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.08);
+    color: white;
+
+    font-size: 18px;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.game-close:hover {
+    background: rgba(255,255,255,0.18);
+    transform: rotate(90deg);
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.game-mode-title {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.game-icon {
+    font-size: 48px;
+    margin-bottom: 5px;
+}
+
+.game-mode-title h1 {
+    margin: 0;
+    color: white;
+    font-size: 32px;
+}
+
+.game-mode-title p {
+    margin-top: 7px;
+    color: #999;
+}
+
+
+/* =========================================
+   GAME CARD
+========================================= */
+
+.game-card {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 22px;
+    margin-bottom: 18px;
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.07),
+            rgba(255,255,255,0.025)
+        );
+
+    color: white;
+
+    transition:
+        transform 0.25s,
+        border-color 0.25s,
+        background 0.25s;
+}
+
+.game-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255,255,255,0.25);
+}
+
+.game-card-left {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.big-game-icon {
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 17px;
+
+    background: rgba(255,255,255,0.08);
+
+    font-size: 38px;
+    flex-shrink: 0;
+}
+
+.game-card h2 {
+    margin: 0 0 6px;
+    font-size: 23px;
+}
+
+.game-card p {
+    margin: 0;
+    color: #999;
+}
+
+
+/* =========================================
+   CHESS OPTIONS
+========================================= */
+
+.chess-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+
+    margin-top: 20px;
+}
+
+.chess-options button {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    padding: 15px;
+
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 15px;
+
+    background: rgba(255,255,255,0.055);
+    color: white;
+
+    cursor: pointer;
+    text-align: left;
+
+    transition: 0.2s;
+}
+
+.chess-options button:hover {
+    background: rgba(255,255,255,0.12);
+    transform: translateY(-2px);
+}
+
+.chess-options button:first-child {
+    font-size: 25px;
+}
+
+.chess-options button:last-child {
+    font-size: 25px;
+}
+
+.chess-options span {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.chess-options b {
+    font-size: 15px;
+}
+
+.chess-options small {
+    color: #999;
+    font-size: 12px;
+}
+
+
+/* =========================================
+   CARROM
+========================================= */
+
+.carrom-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    cursor: pointer;
+
+    text-align: left;
+}
+
+.game-arrow {
+    font-size: 30px;
+    color: #aaa;
+
+    transition: 0.2s;
+}
+
+.carrom-card:hover .game-arrow {
+    color: white;
+    transform: translateX(5px);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+    .game-mode-box {
+        padding: 20px;
+    }
+
+    .chess-options {
+        grid-template-columns: 1fr;
+    }
+
+    .game-mode-title h1 {
+        font-size: 27px;
+    }
+
+    .big-game-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 30px;
+    }
+}
+/* =========================================
+   🎬 SOLVEITAI VIDEO STUDIO
+========================================= */
+
+.video-studio-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(3, 8, 18, 0.88);
+    backdrop-filter: blur(12px);
+}
+
+.video-studio-screen.active {
+    display: flex;
+    animation: videoStudioFade 0.25s ease;
+}
+
+@keyframes videoStudioFade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* MAIN BOX */
+
+.video-studio-box {
+    position: relative;
+
+    width: min(900px, 96vw);
+    max-height: 92vh;
+
+    overflow-y: auto;
+
+    padding: 28px;
+
+    border: 1px solid rgba(80, 170, 255, 0.25);
+    border-radius: 24px;
+
+    background: #0b1424;
+    color: #ffffff;
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.65),
+        0 0 40px rgba(0, 140, 255, 0.08);
+
+    animation: videoStudioBoxIn 0.35s ease;
+}
+
+@keyframes videoStudioBoxIn {
+    from {
+        transform: translateY(25px) scale(0.96);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* CLOSE */
+
+.video-studio-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #17243a;
+    color: #ffffff;
+
+    font-size: 18px;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.video-studio-close:hover {
+    background: #243653;
+    transform: rotate(90deg);
+}
+
+
+/* HEADER */
+
+.video-studio-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    margin-bottom: 24px;
+}
+
+.video-studio-icon {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background: linear-gradient(135deg, #168cff, #713cff);
+
+    font-size: 29px;
+
+    box-shadow: 0 8px 25px rgba(40, 120, 255, 0.25);
+}
+
+.video-studio-header h1 {
+    margin: 0;
+
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.video-studio-header p {
+    margin: 5px 0 0;
+
+    color: #91a4bf;
+    font-size: 14px;
+}
+
+
+/* FREE LIMIT */
+
+.video-limit-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 16px 18px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+
+    background: #111d30;
+}
+
+.video-limit-card > div:first-child {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.video-limit-card b {
+    font-size: 15px;
+}
+
+.video-limit-card span {
+    color: #91a4bf;
+    font-size: 13px;
+}
+
+.video-limit-count {
+    display: flex;
+    align-items: baseline;
+    gap: 3px;
+}
+
+.video-limit-count strong {
+    font-size: 24px;
+}
+
+.video-limit-count small {
+    color: #8193ad;
+}
+
+
+/* UPLOAD */
+
+.video-upload-area {
+    margin-bottom: 22px;
+}
+
+.video-upload-btn {
+    width: 100%;
+    min-height: 120px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    border: 2px dashed #294566;
+    border-radius: 18px;
+
+    background: #0e192b;
+    color: #ffffff;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.video-upload-btn:hover {
+    border-color: #2196ff;
+    background: #11233a;
+    transform: translateY(-2px);
+}
+
+.video-upload-btn span {
+    font-size: 30px;
+    color: #35a7ff;
+}
+
+.video-upload-btn b {
+    font-size: 16px;
+}
+
+.video-upload-btn small {
+    color: #8193ad;
+}
+
+
+/* VIDEO PREVIEW */
+
+.video-preview-area {
+    width: 100%;
+    margin-bottom: 24px;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background: #000;
+
+    border: 1px solid #263b57;
+}
+
+.video-preview-area video {
+    display: block;
+
+    width: 100%;
+    max-height: 420px;
+
+    object-fit: contain;
+
+    background: #000;
+}
+
+
+/* SECTIONS */
+
+.cinematic-section,
+.format-section {
+    margin-top: 22px;
+}
+
+.cinematic-section h3,
+.format-section h3 {
+    margin: 0 0 12px;
+
+    font-size: 16px;
+}
+
+
+/* CINEMATIC BUTTONS */
+
+.cinematic-styles {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 10px;
+}
+
+.cinematic-style {
+    min-height: 65px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    border: 1px solid #263b57;
+    border-radius: 13px;
+
+    background: #111d30;
+    color: #ffffff;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.cinematic-style:hover {
+    border-color: #358fe0;
+    transform: translateY(-2px);
+}
+
+.cinematic-style.active {
+    border-color: #299dff;
+
+    background: #123454;
+
+    box-shadow: 0 0 18px rgba(40, 150, 255, 0.15);
+}
+
+.cinematic-style span {
+    font-size: 12px;
+}
+
+
+/* FORMAT */
+
+.format-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.format-btn {
+    flex: 1;
+
+    padding: 13px;
+
+    border: 1px solid #263b57;
+    border-radius: 12px;
+
+    background: #111d30;
+    color: #ffffff;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+.format-btn small {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #8193ad;
+    font-size: 11px;
+}
+
+.format-btn.active {
+    border-color: #299dff;
+    background: #123454;
+}
+
+
+/* MUSIC */
+
+.music-upload {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-top: 22px;
+}
+
+.music-upload button {
+    padding: 11px 15px;
+
+    border: 1px solid #2c4766;
+    border-radius: 10px;
+
+    background: #111d30;
+    color: #ffffff;
+
+    cursor: pointer;
+}
+
+.music-upload button:hover {
+    background: #192b44;
+}
+
+.music-upload span {
+    overflow: hidden;
+
+    color: #91a4bf;
+
+    font-size: 13px;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* AUTO CINEMATIC */
+
+.auto-cinematic-btn {
+    width: 100%;
+
+    margin-top: 24px;
+    padding: 15px;
+
+    border: none;
+    border-radius: 13px;
+
+    background: linear-gradient(135deg, #148cff, #713cff);
+
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: 0 10px 30px rgba(40, 120, 255, 0.2);
+
+    transition: 0.2s;
+}
+
+.auto-cinematic-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 14px 35px rgba(40, 120, 255, 0.3);
+}
+
+.auto-cinematic-btn:disabled {
+    opacity: 0.6;
+    cursor: wait;
+    transform: none;
+}
+
+
+/* STATUS */
+
+.video-studio-status {
+    margin-top: 12px;
+
+    text-align: center;
+
+    color: #8193ad;
+
+    font-size: 13px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+    .video-studio-screen {
+        padding: 10px;
+    }
+
+    .video-studio-box {
+        width: 100%;
+        max-height: 95vh;
+
+        padding: 20px;
+
+        border-radius: 18px;
+    }
+
+    .video-studio-header h1 {
+        font-size: 23px;
+    }
+
+    .video-studio-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 24px;
+    }
+
+    .cinematic-styles {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .music-upload {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+}
+/* =========================================
+   🎬 PREMIUM VIDEO STUDIO BUTTON
+========================================= */
+
+.video-studio-btn {
+    position: relative;
+
+    width: 100%;
+    height: 48px;
+
+    margin-top: 9px;
+    padding: 0 14px;
+
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    border: 1px solid rgba(120, 160, 255, 0.18);
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(91, 73, 255, 0.18),
+            rgba(0, 170, 255, 0.10)
+        );
+
+    color: #f5f7ff;
+
+    font-size: 14px;
+    font-weight: 650;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.06),
+        0 5px 18px rgba(40, 80, 180, 0.08);
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+
+/* ICON */
+
+.video-studio-btn::before {
+    content: "🎬";
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6d4aff,
+            #159cff
+        );
+
+    font-size: 16px;
+
+    box-shadow:
+        0 4px 14px rgba(74, 92, 255, 0.30);
+}
+
+
+/* REMOVE ORIGINAL EMOJI */
+
+.video-studio-btn {
+    font-size: 0;
+}
+
+.video-studio-btn::after {
+    content: "Video Studio";
+
+    font-size: 14px;
+    font-weight: 650;
+}
+
+
+/* HOVER */
+
+.video-studio-btn:hover {
+    transform: translateY(-1px);
+
+    border-color: rgba(100, 170, 255, 0.45);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(105, 75, 255, 0.27),
+            rgba(0, 170, 255, 0.17)
+        );
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        0 7px 24px rgba(50, 100, 255, 0.16);
+}
+
+
+/* CLICK */
+
+.video-studio-btn:active {
+    transform: scale(0.98);
+}
+
+
+/* PREMIUM LIGHT EFFECT */
+
+.video-studio-btn::marker {
+    display: none;
+}
+/* =========================================================
+   VIDEO STUDIO SCREEN
+========================================================= */
+
+.video-studio-screen {
+    position: fixed;
+    inset: 0;
+
+    z-index: 100000;
+
+    display: none;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        radial-gradient(
+            circle at 50% 10%,
+            #12345a 0%,
+            #081425 40%,
+            #030811 100%
+        );
+
+    color: white;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    pointer-events: none;
+}
+
+.video-studio-screen.active {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    pointer-events: auto;
+}
+
+.video-studio-box {
+    position: relative;
+
+    width: min(900px, 94vw);
+    max-height: 94vh;
+
+    overflow-y: auto;
+
+    padding: 28px;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(18, 35, 58, .98),
+            rgba(6, 14, 27, .98)
+        );
+
+    border:
+        1px solid rgba(100, 190, 255, .22);
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, .55);
+
+    pointer-events: auto;
+}
+
+.video-studio-box button {
+    pointer-events: auto;
+}
