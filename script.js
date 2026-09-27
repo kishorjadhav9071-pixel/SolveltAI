@@ -149,14 +149,8 @@ if (removeImage) {
 // API
 // =========================================================
 
-const API_PORT = 5500;
-
-const API_URL =
-    `http://${window.location.hostname}:${API_PORT}/ask`;
-
-const VISION_API_URL =
-    `http://${window.location.hostname}:${API_PORT}/vision`;
-
+const API_URL = "/ask";
+const VISION_API_URL = "/vision";
 
 // =========================================================
 // HTML ESCAPE
