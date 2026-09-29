@@ -31,6 +31,15 @@ app.use(
 );
 app.use(express.static(__dirname));
 
+app.get("/robots.txt", (req, res) => {
+    res.type("text/plain");
+    res.send(
+        "User-agent: *\n" +
+        "Allow: /\n\n" +
+        "Sitemap: https://solveltai.onrender.com/sitemap.xml"
+    );
+});
+
 /* =========================================================
    OPENROUTER
 ========================================================= */
