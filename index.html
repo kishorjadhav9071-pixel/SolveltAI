@@ -1,21 +1,43 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
-     <meta name="google-site-verification" content="CiSidiG1mM_3XBwO3ZZ2jFFIM2MwaiV2Myf_b7ZVf8A" />
+    <meta name="google-site-verification" content="CiSidiG1mM_3XBwO3ZZ2jFFIM2MwaiV2Myf_b7ZVf8A" />
 
     <meta charset="UTF-8">
-    
+
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0">
 
-    <title>SolveItAI</title>
+    <title>SolveItAI – Naitu AI | AI Chatbot for Study & Coding</title>
+
+    <meta
+        name="description"
+        content="SolveItAI by Naitu AI – a smart AI chatbot for study, coding, homework, questions and everyday tasks. Get fast AI-powered answers and smart solutions.">
+
+    <meta
+        name="robots"
+        content="index, follow">
+
+    <meta
+        name="author"
+        content="Naitik Jadhav">
+
+    <meta
+        name="keywords"
+        content="Naitu AI, SolveItAI, Naitik Jadhav, AI chatbot, AI assistant, study AI, coding AI, homework AI">
+
+    <link
+        rel="canonical"
+        href="https://solveltai.onrender.com/">
 
     <link
         rel="stylesheet"
         href="style.css">
+
 </head>
 
 <body>
@@ -26,46 +48,59 @@
 
     <div class="container">
 
-    <button id="sidebarToggle" class="sidebar-toggle">
-    ☰
-    </button>
+        <button id="sidebarToggle" class="sidebar-toggle">
+            ☰
+        </button>
 
         <!-- SIDEBAR -->
+
         <aside class="sidebar">
 
             <div class="logo-area">
+
                 <img
                     src="image logo.png.jpeg"
-                    alt="SolveItAI">
+                    alt="SolveItAI – Naitu AI">
+
             </div>
 
             <p class="creator">
                 Created by Naitu Gamer
             </p>
 
+            <p class="creator">
+                Naitu AI – Creator of SolveItAI
+            </p>
+
             <button
                 type="button"
                 class="new-chat">
+
                 + New Chat
+
             </button>
 
             <button
                 type="button"
                 class="setting-btn"
                 onclick="openSetting()">
+
                 ⚙️ Setting
+
             </button>
 
             <button
-    type="button"
-    class="game-mode-btn"
-    onclick="openGameMode()">
-    🎮 Game Mode
-</button>
+                type="button"
+                class="game-mode-btn"
+                onclick="openGameMode()">
 
+                🎮 Game Mode
 
+            </button>
 
-            <h3>History</h3>
+            <h3>
+                History
+            </h3>
 
             <ul id="history"></ul>
 
@@ -73,6 +108,7 @@
 
 
         <!-- CHAT -->
+
         <main class="chat-area">
 
             <div id="chatBox">
@@ -84,10 +120,15 @@
                     </div>
 
                     <div class="bubble">
+
                         👋 Hello! I'm
+
                         <b>SolveItAI</b>.
+
                         <br>
+
                         Ask me anything.
+
                     </div>
 
                 </div>
@@ -95,455 +136,597 @@
             </div>
 
 
-            
             <!-- INPUT -->
-            <div id="imagePreview" class="image-preview" style="display:none;">
-    <img id="selectedImage" alt="Selected image">
-    <button
-        type="button"
-        id="removeImage"
-        class="remove-image">
-        ✕
-    </button>
-</div>
 
-<div class="input-area">
+            <div
+                id="imagePreview"
+                class="image-preview"
+                style="display:none;">
 
-    <button
-        type="button"
-        id="plusButton"
-        class="plus-btn"
-        aria-label="Add image">
-        +
-    </button>
+                <img
+                    id="selectedImage"
+                    alt="Selected image">
 
-    <input
-        type="file"
-        id="imageInput"
-        accept="image/jpeg,image/png,image/webp"
-        hidden>
+                <button
+                    type="button"
+                    id="removeImage"
+                    class="remove-image">
 
-    <textarea
-        id="problem"
-        placeholder="Type your problem..."></textarea>
+                    ✕
 
-    <button
-        type="button"
-        class="voice-btn"
-        onclick="startVoice()"
-        aria-label="Voice input">
-        🎤
-    </button>
-
-    <button
-        type="button"
-        class="video-ai-btn"
-        onclick="openAIVideo()"
-        aria-label="Open AI video">
-        🎥
-    </button>
-
-    <button
-        type="button"
-        class="send-btn"
-        onclick="solveProblem()">
-        Send
-    </button>
-
-</div>
-
-
-    <!-- =========================================
-         SOLVEITAI LIVE VIDEO
-    ========================================== -->
-
-    <div
-        id="aiVideoScreen"
-        class="ai-video-screen">
-
-        <!-- TOP BAR -->
-        <header class="video-topbar">
-
-            <div class="video-brand">
-
-                <div class="brand-logo">
-                    S
-                </div>
-
-                <div class="brand-info">
-
-                    <div class="brand-name">
-                        SOLVEIT<span>AI</span>
-                        <b>LIVE</b>
-                    </div>
-
-                    <small>
-                        Smart Solutions, Instant Answers
-                    </small>
-
-                </div>
+                </button>
 
             </div>
 
 
-            <div class="live-status">
-                <span></span>
-                LIVE
+            <div class="input-area">
+
+                <button
+                    type="button"
+                    id="plusButton"
+                    class="plus-btn"
+                    aria-label="Add image">
+
+                    +
+
+                </button>
+
+                <input
+                    type="file"
+                    id="imageInput"
+                    accept="image/jpeg,image/png,image/webp"
+                    hidden>
+
+                <textarea
+                    id="problem"
+                    placeholder="Type your problem..."></textarea>
+
+                <button
+                    type="button"
+                    class="voice-btn"
+                    onclick="startVoice()"
+                    aria-label="Voice input">
+
+                    🎤
+
+                </button>
+
+                <button
+                    type="button"
+                    class="video-ai-btn"
+                    onclick="openAIVideo()"
+                    aria-label="Open AI video">
+
+                    🎥
+
+                </button>
+
+                <button
+                    type="button"
+                    class="send-btn"
+                    onclick="solveProblem()">
+
+                    Send
+
+                </button>
+
             </div>
 
 
-            <button
-                id="closeVideo"
-                class="close-video"
-                type="button"
-                aria-label="Close video">
-                ✕
-            </button>
+            <!-- =========================================
+                 SOLVEITAI LIVE VIDEO
+            ========================================== -->
 
-        </header>
+            <div
+                id="aiVideoScreen"
+                class="ai-video-screen">
 
+                <!-- TOP BAR -->
 
-        <!-- USER CAMERA -->
-        <div class="user-video-card">
+                <header class="video-topbar">
 
-            <video
-                id="userVideo"
-                autoplay
-                muted
-                playsinline>
-            </video>
+                    <div class="video-brand">
 
-            <div class="user-video-label">
-                You
-                <span>●</span>
-            </div>
-
-        </div>
-
-
-        <!-- AI ROBOT -->
-        <section class="ai-robot-area">
-
-            <div class="robot-glow"></div>
-
-            <div class="ai-robot">
-
-                <!-- HEAD -->
-                <div class="robot-head">
-
-                    <div class="robot-face">
-
-                        <div class="robot-eye"></div>
-
-                        <div class="robot-eye"></div>
-
-                        <div class="robot-mouth"></div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- NECK -->
-                <div class="robot-neck"></div>
-
-
-                <!-- BODY -->
-                <div class="robot-body">
-
-                    <div class="robot-chest">
-
-                        <div class="chest-s">
+                        <div class="brand-logo">
                             S
                         </div>
 
-                    </div>
+                        <div class="brand-info">
 
+                            <div class="brand-name">
 
-                    <!-- LEFT ARM -->
-                    <div class="robot-arm robot-left-arm">
+                                SOLVEIT<span>AI</span>
 
-                        <div class="arm-part"></div>
+                                <b>LIVE</b>
 
-                        <div class="arm-part"></div>
+                            </div>
 
-                        <div class="robot-hand">
-
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
+                            <small>
+                                Smart Solutions, Instant Answers
+                            </small>
 
                         </div>
 
                     </div>
 
 
-                    <!-- RIGHT ARM -->
-                    <div class="robot-arm robot-right-arm">
+                    <div class="live-status">
 
-                        <div class="arm-part"></div>
+                        <span></span>
 
-                        <div class="arm-part"></div>
+                        LIVE
 
-                        <div class="robot-hand">
+                    </div>
 
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
 
-                        </div>
+                    <button
+                        id="closeVideo"
+                        class="close-video"
+                        type="button"
+                        aria-label="Close video">
+
+                        ✕
+
+                    </button>
+
+                </header>
+
+
+                <!-- USER CAMERA -->
+
+                <div class="user-video-card">
+
+                    <video
+                        id="userVideo"
+                        autoplay
+                        muted
+                        playsinline>
+                    </video>
+
+                    <div class="user-video-label">
+
+                        You
+
+                        <span>●</span>
 
                     </div>
 
                 </div>
 
 
-                <!-- WAIST -->
-                <div class="robot-waist"></div>
+                <!-- AI ROBOT -->
+
+                <section class="ai-robot-area">
+
+                    <div class="robot-glow"></div>
+
+                    <div class="ai-robot">
+
+                        <!-- HEAD -->
+
+                        <div class="robot-head">
+
+                            <div class="robot-face">
+
+                                <div class="robot-eye"></div>
+
+                                <div class="robot-eye"></div>
+
+                                <div class="robot-mouth"></div>
+
+                            </div>
+
+                        </div>
 
 
-                <!-- LEGS -->
-                <div class="robot-legs">
+                        <!-- NECK -->
 
-                    <div class="robot-leg"></div>
+                        <div class="robot-neck"></div>
 
-                    <div class="robot-leg"></div>
+
+                        <!-- BODY -->
+
+                        <div class="robot-body">
+
+                            <div class="robot-chest">
+
+                                <div class="chest-s">
+                                    S
+                                </div>
+
+                            </div>
+
+
+                            <!-- LEFT ARM -->
+
+                            <div class="robot-arm robot-left-arm">
+
+                                <div class="arm-part"></div>
+
+                                <div class="arm-part"></div>
+
+                                <div class="robot-hand">
+
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- RIGHT ARM -->
+
+                            <div class="robot-arm robot-right-arm">
+
+                                <div class="arm-part"></div>
+
+                                <div class="arm-part"></div>
+
+                                <div class="robot-hand">
+
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- WAIST -->
+
+                        <div class="robot-waist"></div>
+
+
+                        <!-- LEGS -->
+
+                        <div class="robot-legs">
+
+                            <div class="robot-leg"></div>
+
+                            <div class="robot-leg"></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SPEECH -->
+
+                    <div class="ai-speech-bubble">
+
+                        I'm
+
+                        <span>
+                            SolveItAI
+                        </span>
+
+                        <br>
+
+                        How can I help you
+                        today?
+
+                    </div>
+
+                </section>
+
+
+                <!-- CONTROLS -->
+
+                <div class="video-controls">
+
+                    <button
+                        id="cameraButton"
+                        type="button">
+
+                        📹
+
+                        <small>
+                            Camera
+                        </small>
+
+                    </button>
+
+
+                    <button
+                        id="videoMic"
+                        type="button">
+
+                        🎤
+
+                        <small>
+                            Mic
+                        </small>
+
+                    </button>
+
+
+                    <button
+                        id="endCallButton"
+                        class="end-call"
+                        type="button">
+
+                        📞
+
+                        <small>
+                            End
+                        </small>
+
+                    </button>
+
+
+                    <button
+                        id="speakerButton"
+                        type="button">
+
+                        🔊
+
+                        <small>
+                            Speaker
+                        </small>
+
+                    </button>
+
+
+                    <button
+                        id="captionButton"
+                        type="button">
+
+                        💬
+
+                        <small>
+                            Captions
+                        </small>
+
+                    </button>
+
+                </div>
+
+
+                <!-- BOTTOM INFO -->
+
+                <div class="video-bottom">
+
+                    <div>
+
+                        <strong>
+                            🎙 Listening...
+                        </strong>
+
+                        <span>
+                            Processing your question
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            🔊 SolveItAI is speaking...
+                        </strong>
+
+                        <span>
+                            Generating smart answer
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            CC Live Captions
+                        </strong>
+
+                        <span>
+                            Transcribing in real-time
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- STATUS -->
+
+                <div
+                    id="aiVideoStatus"
+                    class="video-status">
+
+                    Ready for smart talking.
+
+                </div>
+
+
+                <!-- CAPTIONS -->
+
+                <div
+                    id="aiVideoCC"
+                    class="video-captions">
+
+                    Press the microphone and speak to SolveItAI.
 
                 </div>
 
             </div>
 
 
-            <!-- SPEECH -->
-            <div class="ai-speech-bubble">
+            <!-- LOGIN CHECK -->
 
-                I'm
-                <span>SolveItAI</span>
+            <script>
 
-                <br>
+                if (!localStorage.getItem("solveitai_token")) {
 
-                How can I help you
-                today?
+                    window.location.href = "login.html";
+
+                }
+
+            </script>
+
+
+            <!-- MAIN JS -->
+
+            <script src="script.js"></script>
+
+
+            <!-- =========================================
+                 GAME MODE SCREEN
+            ========================================== -->
+
+            <div
+                id="gameModeScreen"
+                class="game-mode-screen">
+
+                <div class="game-mode-box">
+
+                    <button
+                        class="game-close"
+                        type="button"
+                        onclick="closeGameMode()">
+
+                        ✕
+
+                    </button>
+
+
+                    <div class="game-mode-title">
+
+                        <div class="game-icon">
+                            🎮
+                        </div>
+
+                        <h1>
+                            Game Mode
+                        </h1>
+
+                        <p>
+                            Choose your game
+                        </p>
+
+                    </div>
+
+
+                    <!-- CHESS -->
+
+                    <div class="game-card chess-card">
+
+                        <div class="game-card-left">
+
+                            <div class="big-game-icon">
+                                ♟️
+                            </div>
+
+                            <div>
+
+                                <h2>
+                                    Chess
+                                </h2>
+
+                                <p>
+                                    Classic chess with modern gameplay
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="chess-options">
+
+                            <button
+                                type="button"
+                                onclick="openChess('ai')">
+
+                                🤖
+
+                                <span>
+
+                                    <b>
+                                        Play with SolveItAI
+                                    </b>
+
+                                    <small>
+                                        Challenge the AI
+                                    </small>
+
+                                </span>
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                onclick="openChess('duo')">
+
+                                👥
+
+                                <span>
+
+                                    <b>
+                                        Duo
+                                    </b>
+
+                                    <small>
+                                        Play with a friend
+                                    </small>
+
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CARROM -->
+
+                    <button
+                        class="game-card carrom-card"
+                        type="button"
+                        onclick="openCarrom()">
+
+                        <div class="game-card-left">
+
+                            <div class="big-game-icon">
+                                🟤
+                            </div>
+
+                            <div>
+
+                                <h2>
+                                    Carrom
+                                </h2>
+
+                                <p>
+                                    Classic carrom board game
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="game-arrow">
+                            →
+                        </div>
+
+                    </button>
+
+                </div>
 
             </div>
 
-        </section>
-
-
-        <!-- CONTROLS -->
-        <div class="video-controls">
-
-            <button
-                id="cameraButton"
-                type="button">
-
-                📹
-                <small>Camera</small>
-
-            </button>
-
-
-            <button
-                id="videoMic"
-                type="button">
-
-                🎤
-                <small>Mic</small>
-
-            </button>
-
-
-            <button
-                id="endCallButton"
-                class="end-call"
-                type="button">
-
-                📞
-                <small>End</small>
-
-            </button>
-
-
-            <button
-                id="speakerButton"
-                type="button">
-
-                🔊
-                <small>Speaker</small>
-
-            </button>
-
-
-            <button
-                id="captionButton"
-                type="button">
-
-                💬
-                <small>Captions</small>
-
-            </button>
-
-        </div>
-
-
-        <!-- BOTTOM INFO -->
-        <div class="video-bottom">
-
-            <div>
-
-                <strong>
-                    🎙 Listening...
-                </strong>
-
-                <span>
-                    Processing your question
-                </span>
-
-            </div>
-
-
-            <div>
-
-                <strong>
-                    🔊 SolveItAI is speaking...
-                </strong>
-
-                <span>
-                    Generating smart answer
-                </span>
-
-            </div>
-
-
-            <div>
-
-                <strong>
-                    CC Live Captions
-                </strong>
-
-                <span>
-                    Transcribing in real-time
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <!-- STATUS -->
-        <div
-            id="aiVideoStatus"
-            class="video-status">
-            Ready for smart talking.
-        </div>
-
-
-        <!-- CAPTIONS -->
-        <div
-            id="aiVideoCC"
-            class="video-captions">
-            Press the microphone and speak to SolveItAI.
-        </div>
+        </main>
 
     </div>
-
-
-    <!-- LOGIN CHECK -->
-    <script>
-
-      if (!localStorage.getItem("solveitai_token")) {
-
-    window.location.href = "login.html";
-
-}
-    </script>
-
-
-    <!-- MAIN JS -->
-    <script src="script.js"></script>
-
-<!-- =========================================
-     GAME MODE SCREEN
-========================================= -->
-<div id="gameModeScreen" class="game-mode-screen">
-
-    <div class="game-mode-box">
-
-        <button
-            class="game-close"
-            type="button"
-            onclick="closeGameMode()">
-            ✕
-        </button>
-
-        <div class="game-mode-title">
-            <div class="game-icon">🎮</div>
-            <h1>Game Mode</h1>
-            <p>Choose your game</p>
-        </div>
-
-        <!-- CHESS -->
-        <div class="game-card chess-card">
-
-            <div class="game-card-left">
-                <div class="big-game-icon">♟️</div>
-
-                <div>
-                    <h2>Chess</h2>
-                    <p>Classic chess with modern gameplay</p>
-                </div>
-            </div>
-
-            <div class="chess-options">
-
-                <button
-                    type="button"
-                    onclick="openChess('ai')">
-                    🤖
-                    <span>
-                        <b>Play with SolveItAI</b>
-                        <small>Challenge the AI</small>
-                    </span>
-                </button>
-
-                <button
-                    type="button"
-                    onclick="openChess('duo')">
-                    👥
-                    <span>
-                        <b>Duo</b>
-                        <small>Play with a friend</small>
-                    </span>
-                </button>
-
-            </div>
-        </div>
-
-        <!-- CARROM -->
-        <button
-            class="game-card carrom-card"
-            type="button"
-            onclick="openCarrom()">
-
-            <div class="game-card-left">
-                <div class="big-game-icon">🟤</div>
-
-                <div>
-                    <h2>Carrom</h2>
-                    <p>Classic carrom board game</p>
-                </div>
-            </div>
-
-            <div class="game-arrow">
-                →
-            </div>
-
-        </button>
-
-    </div>
-</div>
 
 </body>
 
