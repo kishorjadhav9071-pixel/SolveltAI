@@ -31,14 +31,19 @@ app.use(
 );
 app.use(express.static(__dirname));
 
+
+
 app.get("/robots.txt", (req, res) => {
-    res.type("text/plain");
+    res.status(200);
+    res.set("Content-Type", "text/plain; charset=utf-8");
+    res.set("X-Robots-Tag", "all");
     res.send(
         "User-agent: *\n" +
         "Allow: /\n\n" +
-        "Sitemap: https://solveltai.onrender.com/sitemap.xml"
+        "Sitemap: https://solveltai.onrender.com/sitemap.xml\n"
     );
 });
+
 
 /* =========================================================
    OPENROUTER
